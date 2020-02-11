@@ -34,16 +34,20 @@ public class Game extends KeyAdapter{
 
         switch(ch) {
             case 'w':
-                player.setX(-1);
+                if (isMovingPossible(player.getX() - 1, player.getY())) {           
+                player.setX(-1);}
                 break;
             case 's':
-                player.setX(1);
+            if (isMovingPossible(player.getX() +1, player.getY())) {           
+                player.setX(1);}
                 break;
             case 'a':
-                player.setY(-1);
+            if (isMovingPossible(player.getX(), player.getY()-1)) {           
+                player.setY(-1);}
                 break;
             case 'd':
-                player.setY(1);
+            if (isMovingPossible(player.getX(), player.getY()+1)) {           
+                player.setY(1);}
                 break;   
         }
 
@@ -58,7 +62,7 @@ public class Game extends KeyAdapter{
 
     public void display() {
         String[][] boardBackground;
-        boardBackground = map.generateMap(); 
+        boardBackground = this.map.generateMap(); 
         
         int x = player.getX();
         int y = player.getY();
@@ -71,4 +75,15 @@ public class Game extends KeyAdapter{
             System.out.println();
         }
     }
+
+    public boolean isMovingPossible(int x, int y) {
+        
+        if (map.getBoard()[x][y] == " . ") {
+            return true;
+
+        } else { 
+            return false;
+        }
+    }
 }
+
