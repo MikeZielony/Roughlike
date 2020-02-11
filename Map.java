@@ -20,14 +20,21 @@ public class Map {
         String sand = " . ";
         String frameHorizontal = "---";
         String frameVertical = " | ";
-        for (int x = 0; x < sizeX; x++){
+        for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
                 if (x == 0 || x == sizeX - 1) {
                     board[x][y] = frameHorizontal;
                 }
                 else if (y == 0 || y == sizeY - 1) {
                     board[x][y] = frameVertical;
-                } else {
+                }
+                else if (x == 5 && y == 5) {
+                    board[x][y] = " J ";
+                } 
+                else if (x == 9 && y == 5) {
+                    board[x][y] = " R ";
+                }
+                else {
                     board[x][y] = sand;
                 }
             }
@@ -37,6 +44,5 @@ public class Map {
 
     public void addElement(Element element) {
         this.elements.add(element);
-
     }
 }

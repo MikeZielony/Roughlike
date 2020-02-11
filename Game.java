@@ -5,6 +5,8 @@ import java.awt.event.KeyEvent;
 
 public class Game extends KeyAdapter{
 
+    public Player player;
+
     public void start() {
         JTextField textField = new JTextField();
 
@@ -25,7 +27,7 @@ public class Game extends KeyAdapter{
             System.out.println();
         }
 
-        Player player = new Player("Janusz", "@", 100, 120, 5, 5, false, true);
+        player = new Player("Janusz", "@", 100, 120, 5, 5, false, true);
         map1.addElement(player);
     }
     @Override
@@ -56,22 +58,6 @@ public class Game extends KeyAdapter{
                 // Hero.moveRight()
                 break;   
         }
-    }
-
-    public void moveDown() {
-
-    }
-
-    public void moveUp() {
-
-    }
-
-    public void moveLeft() {
-
-    }
-
-    public void moveRight() {
-        
     }
 
 }
