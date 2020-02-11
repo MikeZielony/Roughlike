@@ -21,6 +21,7 @@ public class Player extends LivingElement{
     public void moveRight() {
         
     }
+    
 
 
 }

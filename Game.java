@@ -1,35 +1,29 @@
-import javax.swing.JFrame;
-import javax.swing.JTextField;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class Game extends KeyAdapter{
 
-    public Player player;
+    private Map map;
+    private Player player;
 
-    public void start() {
-        JTextField textField = new JTextField();
-
-        textField.addKeyListener(new Game());
-        JFrame jframe = new JFrame();
-
-        jframe.add(textField);
-        jframe.setSize(100, 100);
-        jframe.setVisible(true);
-        
-        Map map1 = new Map("Level 1", 20, 20);
-        String[][] board = map1.generateMap();
-
-        for (String[] line : board) {
-            for (String character : line) {
-                System.out.print(character);
-            }
-            System.out.println();
-        }
-
-        player = new Player("Janusz", "@", 100, 120, 5, 5, false, true);
-        map1.addElement(player);
+    public Game(Map map, Player player) {
+        this.map = map;
+        this.player = player;
     }
+
+    public void start() {        
+        this.map.generateMap();
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
     @Override
     public void keyPressed(KeyEvent event) {
 
@@ -38,26 +32,43 @@ public class Game extends KeyAdapter{
 
         char ch = event.getKeyChar();
 
-        System.out.println((int)ch);
-
         switch(ch) {
             case 'w':
-                // code block
-                // Hero.moveUp()
+                player.setX(-1);
                 break;
             case 's':
-                // code block
-                // Hero.moveDown()
+                player.setX(1);
                 break;
             case 'a':
-                // code block
-                // Hero.moveLeft()
+                player.setY(-1);
                 break;
             case 'd':
-                // code block
-                // Hero.moveRight()
+                player.setY(1);
                 break;   
         }
+
+        clearScreen();
+        display();
     }
 
+    private static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    public void display() {
+        String[][] board2;
+        board2 = map.generateMap(); 
+        
+        int x = player.getX();
+        int y = player.getY();
+        board2[x][y] = player.getLook();
+
+        for (String[] line : board2) {
+            for (String character : line) {
+                System.out.print(character);
+            }
+            System.out.println();
+        }
+    }
 }
