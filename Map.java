@@ -24,6 +24,10 @@ public class Map {
 
     public String[][] generateMap() {
         // constants
+        elements.add(new Rock("RRR", 3, 10, 12, false, true));
+        elements.add(new Rock("RRR", 3, 15, 15, false, true));
+        elements.add(new Rock("RRR", 3, 7, 11, false, true));
+        elements.add(new Rock("RRR", 3, 5, 12, false, true));
         String sand = " . ";
         String frameHorizontal = "---";
         String frameVertical = " | ";
@@ -40,11 +44,11 @@ public class Map {
                 }
                 
                 // add StaticElements here -- create class to reflect that
-                // for (Element element : elements) {
-                //     int x = element.getX();
-                //     int y = element.getY();
-                //     this.board[x][y] = element.getLook();
-                // }
+                for (Element element : elements) {
+                     int xR = element.getX();
+                     int yR = element.getY();
+                     this.board[xR][yR] = element.getLook();
+                 }
             }
         }
 

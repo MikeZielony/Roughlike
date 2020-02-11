@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Player player = new Player("Janusz", " @ ", 100, 120, 5, 5, false, true);
+        Player player = new Player("Janusz", "JAN", 100, 120, 5, 5, false, true);
         Map map = new Map("Level 1", 20, 20);
         Game game = new Game(map, player);
         // game.setPlayer(player);
