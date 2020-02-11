@@ -8,12 +8,11 @@ public abstract class Element {
     private boolean canPassThrough;
     
 
-    public Element(String look, int weight, int x, int y, boolean isToxic, boolean canPassThrough) {
+    public Element(String look, int weight, int x, int y, boolean canPassThrough) {
         this.look = look;
         this.weight = weight;
         this.x = x;
         this.y = y;
-        this.isToxic = isToxic;
         this.canPassThrough = canPassThrough;
     }
 

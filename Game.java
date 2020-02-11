@@ -57,14 +57,14 @@ public class Game extends KeyAdapter{
     }
 
     public void display() {
-        String[][] board2;
-        board2 = map.generateMap(); 
+        String[][] boardBackground;
+        boardBackground = map.generateMap(); 
         
         int x = player.getX();
         int y = player.getY();
-        board2[x][y] = player.getLook();
+        boardBackground[x][y] = player.getLook();
 
-        for (String[] line : board2) {
+        for (String[] line : boardBackground) {
             for (String character : line) {
                 System.out.print(character);
             }
