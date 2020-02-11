@@ -28,6 +28,7 @@ public class Map {
         elements.add(new Rock("RRR", 5, 15, 15, false, false));
         elements.add(new Rock("RRR", 30, 7, 11, false, true));
         elements.add(new Rock("RRR", 100, 5, 12, false, false));
+        
         String sand = " . ";
         String frameHorizontal = "---";
         String frameVertical = " | ";

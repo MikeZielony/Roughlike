@@ -34,8 +34,12 @@ public class Game extends KeyAdapter{
 
         switch(ch) {
             case 'w':
+            
                 if (isMovingPossible(player.getX() - 1, player.getY())) {           
                 player.setX(-1);}
+                if (isInteraction(player.getX(), player.getY())) {
+                    System.out.println("\007");
+                } 
                 break;
             case 's':
             if (isMovingPossible(player.getX() +1, player.getY())) {           
@@ -67,6 +71,8 @@ public class Game extends KeyAdapter{
         int x = player.getX();
         int y = player.getY();
         boardBackground[x][y] = player.getLook();
+        boardBackground[3][3] = "GRA";
+        
 
         for (String[] line : boardBackground) {
             for (String character : line) {
@@ -78,10 +84,16 @@ public class Game extends KeyAdapter{
 
     public boolean isMovingPossible(int x, int y) {
         
-        if (map.getBoard()[x][y] == " . ") {
+        if (map.getBoard()[x][y] == " . " || map.getBoard()[x][y] == "GRA") {
             return true;
-
-        } else { 
+        }else{
+            return false;
+        }
+    }
+    public boolean isInteraction(int x, int y) {
+        if (map.getBoard()[x][y] == "GRA") {
+            return true;
+        }else{
             return false;
         }
     }
