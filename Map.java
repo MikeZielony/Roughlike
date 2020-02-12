@@ -43,10 +43,17 @@ public class Map {
             int elementY = (int)(Math.random() * ((maxY - minY) + 1)) + minY;
 
             elements.add(new Rock("RRR", elementWeight, elementX, elementY, randomBoolean, randomBoolean));
-        }   
+            
+        }
+           
+    }
+    public void generateGrazyna() {
+        elements.add(new LivingElement("Grazyna", "GRA", 1, 1, 8, 8, true));
+       // elements.add(new LivingElement(name, look, energy, weight, x, y, canPassThrough));
     }
     
     public String[][] generateMap() {
+        
         String sand = " . ";
         String frameHorizontal = "---";
         String frameVertical = " | ";

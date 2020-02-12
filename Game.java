@@ -38,70 +38,71 @@ public class Game extends KeyAdapter{
             case 'w':
                 isInteraction(player.getX() - 1, player.getY(), -1, 0);
 
-                if (isMovingPossible(player.getX() - 1, player.getY())) {           
-                      player.setX(-1);
-                 }
+                // if (isMovingPossible(player.getX() - 1, player.getY())) {           
+                //       player.setX(-1);
+                //  }
                 
                 break;
                 case 'S':
                 isInteraction(player.getX() - 1, player.getY(), 1, 0);
 
-                if (isMovingPossible(player.getX() - 1, player.getY())) {           
-                      player.setX(1);
-                 }
+                // if (isMovingPossible(player.getX() - 1, player.getY())) {           
+                //       player.setX(1);
+                //  }
                 
                 break;
                 case 's':
                 isInteraction(player.getX() + 1, player.getY(), 1, 0);
 
-                if (isMovingPossible(player.getX() +1, player.getY())) {           
-                      player.setX(1);
-                 }
+                // if (isMovingPossible(player.getX() +1, player.getY())) {           
+                //       player.setX(1);
+                //  }
 
                 break;
             case 'W':
                 isInteraction(player.getX() + 1, player.getY(), -1, 0);
 
-                if (isMovingPossible(player.getX() +1, player.getY())) {           
-                      player.setX(-1);
-                 }
+                // if (isMovingPossible(player.getX() +1, player.getY())) {           
+                //       player.setX(-1);
+                //  }
 
                 break;
             case 'a':
                 isInteraction(player.getX(), player.getY() - 1, 0, -1);
 
-                if (isMovingPossible(player.getX(), player.getY()-1)) {           
-                    player.setY(-1);
+                // if (isMovingPossible(player.getX(), player.getY()-1)) {           
+                //     player.setY(-1);
                     
-                }
+                // }
                 break;
                 case 'D':
                 isInteraction(player.getX(), player.getY() - 1, 0, 1);
 
-                if (isMovingPossible(player.getX(), player.getY()-1)) {           
-                    player.setY(1);
+                // if (isMovingPossible(player.getX(), player.getY()-1)) {           
+                //     player.setY(1);
                     
-                }
+                // }
                 break;
             case 'd':
                 isInteraction(player.getX(), player.getY() + 1, 0, 1);
 
-                if (isMovingPossible(player.getX(), player.getY()+1)) {           
-                    player.setY(1);
+                // if (isMovingPossible(player.getX(), player.getY()+1)) {           
+                //     player.setY(1);
                     
-                }
+                // }
                 break;   
                 case 'A':
                 isInteraction(player.getX(), player.getY() + 1, 0,-1);
 
-                if (isMovingPossible(player.getX(), player.getY()+1)) {           
-                    player.setY(-1);
+                // if (isMovingPossible(player.getX(), player.getY()+1)) {           
+                //     player.setY(-1);
                     
-                }
+                // }
                 break;   
         }
 
         clearScreen();
+        
         display();
     }
 
@@ -117,7 +118,7 @@ public class Game extends KeyAdapter{
         int x = player.getX();
         int y = player.getY();
         boardBackground[x][y] = player.getLook();
-        boardBackground[3][3] = "GRA";
+        
         
 
         for (String[] line : boardBackground) {
@@ -128,10 +129,51 @@ public class Game extends KeyAdapter{
         }
     }
 
-   public boolean isMovingPossible(int x, int y) {
-        return map.getBoard()[x][y] == " . " || map.getBoard()[x][y] == "RRR";
-   }
+//     public void moveGrazyna() {
+//         int max = 0;
+//         int min = 3;
+
+//         // for (Element element : map.getElements()) {
+//         //     if (element.getLook() == "GRA") { 
+//         //         int move = (int)(Math.random() * ((max - min)));
+//         //         switch(move) {
+//         //             case '0':
+//         //             isMovingPossible(element.getX()-1, element.getY());
+//         //         element.setX(-1);
+//         //         break;
+//         //         case '1':
+//         //             isMovingPossible(element.getX()+1, element.getY());
+//         //         element.setX(1);
+//         //         break;
+//         //         case '2':
+//         //             isMovingPossible(element.getX(), element.getY()-1);
+//         //         element.setY(-1);
+//         //         break;
+//         //         case '3':
+//         //             isMovingPossible(element.getX(), element.getY()+1);
+//         //         element.setY(1);
+//         //         break;
+//         //     }
+            
+            
+            
+//         // }
+    //}
+//}
+
+   //public boolean isMovingPossible(int x, int y) {
+     //  return map.getBoard()[x][y] == " . " || map.getBoard()[x][y] == "RRR";
+//}
+//isInteraction(player.getX() - 1, player.getY(), -1, 0);
+
+                // if (isMovingPossible(player.getX() - 1, player.getY())) {           
+                //       player.setX(-1);
+                //  }
+
     public boolean isInteraction(int px, int py, int x, int y) {
+        if(map.getBoard()[px+x][py+y] == " . " || map.getBoard()[px][py] == "RRR"){
+            player.setX(x);
+            player.setY(y);
        
         for (Element element : map.getElements() ) {
             if (element.getX() == px 
@@ -139,10 +181,10 @@ public class Game extends KeyAdapter{
                  element.setIsMoveable();
                  element.setX(x);
                  element.setY(y);
-
+                 
                  return true;
         }
-        
+    }
         
     }
     return false;

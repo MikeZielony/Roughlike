@@ -10,7 +10,11 @@ public class Main {
         
         Map map = new Map("Level 1", 20, 20);
         map.generateObstracles();
+        map.generateGrazyna();
+        
+        
         Game game = new Game(map, player);
+       
         
         // game.setPlayer(player);
         // game.setMap(map);
