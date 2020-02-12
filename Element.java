@@ -4,7 +4,6 @@ public abstract class Element {
     private int weight;
     private int x;
     private int y;
-    private boolean isToxic;
     private boolean canPassThrough;
     
 
@@ -16,6 +15,16 @@ public abstract class Element {
         this.canPassThrough = canPassThrough;
     }
 
+    public String getLook() {
+        return this.getColor() + this.look + Color.RESET;
+    }
+
+    protected abstract String getColor();
+
+    public int getWeight() {
+        return this.weight;
+    }
+
     public int getX() {
         return this.x;
     }
@@ -23,15 +32,29 @@ public abstract class Element {
     public int getY() {
         return this.y;
     }
-    public String getLook() {
-        return this.look;
+
+    public boolean getCanPassThrough() {
+        return this.canPassThrough;
+    }
+
+    public void setLook(String look) {
+        this.look = look;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public void setX(int x) {
+        this.x = x;
     }
 
     public void setY(int y) {
-        this.y = this.y + y;
+        this.y = y;
     }
-    
-    public void setX(int x) {
-        this.x = this.x + x;
+
+    public void setCanPassThrough(boolean canPassThrough) {
+        this.canPassThrough = canPassThrough;
     }
+
 }

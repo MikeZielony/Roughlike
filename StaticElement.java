@@ -19,4 +19,9 @@ public class StaticElement extends Element {
     public int getWeight() {
         return weight;
     }
+
+    @Override
+    protected String getColor() {
+        return Color.GREEN_BRIGHT;
+    }
 }

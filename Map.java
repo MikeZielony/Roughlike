@@ -22,7 +22,7 @@ public class Map {
         return board;
     }
 
-    public void generateObstracles() {
+    public void generateObstracles(String name) {
         int minWeight = 1;
         int maxWeight = 150;
         int minX = 1;
@@ -39,7 +39,7 @@ public class Map {
             int elementX = (int)(Math.random() * ((maxX - minX) + 1)) + minX;
             int elementY = (int)(Math.random() * ((maxY - minY) + 1)) + minY;
 
-            elements.add(new Rock("RRR", elementWeight, elementX, elementY, randomBoolean, randomBoolean));
+            elements.add(new Rock(name, elementWeight, elementX, elementY, randomBoolean, randomBoolean));
         }   
     }
     

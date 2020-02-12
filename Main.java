@@ -5,11 +5,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Player player = new Player("Janusz", "JAN", 100, 120, 5, 5, false);
-        Player player2 = new Player("Grazynka", "GRA", 100, 120, 3, 3, true);
+        Player player = new Player("Janusz","JAN", 100, 120, 5, 5, false);
+        Enemy enemy = new Enemy("Grazynka", "GRA", 100, 120, 3, 3, true);
         
         Map map = new Map("Level 1", 20, 20);
-        map.generateObstracles();
+        map.generateObstracles("RRR");
+        map.generateObstracles("XXX");
         Game game = new Game(map, player);
         
         // game.setPlayer(player);

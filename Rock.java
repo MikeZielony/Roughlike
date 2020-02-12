@@ -4,4 +4,9 @@ public class Rock extends StaticElement {
         super(look, weight, x, y, isToxic, canPassThrough);
 
     }
+
+    @Override
+    protected String getColor() {
+        return Color.WHITE_BOLD;
+    }
 }

@@ -6,22 +6,9 @@ public class Player extends LivingElement{
 
     }
 
-    public void moveDown() {
-        
+    @Override
+    protected String getColor() {
+        return Color.GREEN_BRIGHT;
     }
-
-    public void moveUp() {
-
-    }
-
-    public void moveLeft() {
-
-    }
-
-    public void moveRight() {
-        
-    }
-    
-
 
 }

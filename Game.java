@@ -28,9 +28,6 @@ public class Game extends KeyAdapter{
     @Override
     public void keyPressed(KeyEvent event) {
 
-        // Game game = new Game();
-        // game.start();
-
         char ch = event.getKeyChar();
 
         switch(ch) {
@@ -44,15 +41,15 @@ public class Game extends KeyAdapter{
                 } 
                 break;
             case 's':
-            if (isMovingPossible(player.getX() +1, player.getY())) {           
+            if (isMovingPossible(player.getX() + 1, player.getY())) {           
                 player.setX(1);}
                 break;
             case 'a':
-            if (isMovingPossible(player.getX(), player.getY()-1)) {           
+            if (isMovingPossible(player.getX(), player.getY() - 1)) {           
                 player.setY(-1);}
                 break;
             case 'd':
-            if (isMovingPossible(player.getX(), player.getY()+1)) {           
+            if (isMovingPossible(player.getX(), player.getY() + 1)) {           
                 player.setY(1);}
                 break;   
         }

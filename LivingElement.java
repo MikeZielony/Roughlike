@@ -18,5 +18,16 @@ public class LivingElement extends Element {
         }
     }
 
+    public int getEnergy() {
+        return this.energy;
+    }
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    protected String getColor() {
+        return Color.GREEN_BRIGHT;
+    }
 
 }
