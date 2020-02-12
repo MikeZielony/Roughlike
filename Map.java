@@ -7,7 +7,7 @@ public class Map {
     private int sizeX;
     private int sizeY;
     private String[][] board;
-    private List<Element> elements;
+    public List<Element> elements;
 
     public Map(String levelName, int sizeX, int sizeY) {
         this.levelName = levelName;
@@ -17,7 +17,10 @@ public class Map {
         this.elements = new ArrayList<Element>();
         generateMap();
     }
-
+    public List<Element> getElements() {
+        this.elements = elements;
+        return elements;
+    }
     public String[][] getBoard() {
         return board;
     }
@@ -29,7 +32,7 @@ public class Map {
         int minY = 1;
         int maxX = sizeX - 1;
         int maxY = sizeY - 1;
-        int numberOfElements = 20;
+        int numberOfElements = 5;
 
         int elementWeight = (int)(Math.random() * ((maxWeight - minWeight) + 1)) + minWeight;
         

@@ -5,14 +5,16 @@ public abstract class Element {
     private int x;
     private int y;
     private boolean canPassThrough;
+    private boolean isToxic;
+    private boolean isMoveable;
     
 
-    public Element(String look, int weight, int x, int y, boolean canPassThrough) {
+    public Element(String look, int weight, int x, int y, boolean isMoveable) {
         this.look = look;
         this.weight = weight;
         this.x = x;
         this.y = y;
-        this.canPassThrough = canPassThrough;
+        this.isMoveable = isMoveable;
     }
 
     public String getLook() {
@@ -46,15 +48,18 @@ public abstract class Element {
     }
 
     public void setX(int x) {
-        this.x = x;
+        this.x += x;
     }
 
     public void setY(int y) {
-        this.y = y;
+        this.y += y;
     }
 
     public void setCanPassThrough(boolean canPassThrough) {
         this.canPassThrough = canPassThrough;
     }
-
+    
+    public void setIsMoveable() {
+        this.isMoveable = true;
+    }
 }
