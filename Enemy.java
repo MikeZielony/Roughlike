@@ -8,7 +8,7 @@ public class Enemy extends LivingElement{
 
     @Override
     protected String getColor() {
-        return Color.GREEN_BRIGHT;
+        return Color.RED_BACKGROUND_BRIGHT;
     }
 
 }
