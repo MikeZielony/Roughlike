@@ -7,6 +7,7 @@ public class Game extends KeyAdapter{
     private Map map;
     private Player player;
     public boolean isInteraction;
+    private Map elements;
 
     public Game(Map map, Player player) {
         this.map = map;
@@ -25,6 +26,10 @@ public class Game extends KeyAdapter{
         this.map = map;
     }
 
+    public void getElement(Map elements) {
+        this.elements = elements;
+    }
+
     @Override
     public void keyPressed(KeyEvent event) {
 
@@ -38,7 +43,8 @@ public class Game extends KeyAdapter{
             
                 if (isMovingPossible(player.getX() - 1, player.getY())) {  
                             
-                player.setX(-1);}
+                player.setX(-1);
+                elements.setX(-1)}
                 if (isInteraction(player.getX(), player.getY())) {
                     System.out.println("\007");
                 } 
@@ -73,7 +79,7 @@ public class Game extends KeyAdapter{
         int x = player.getX();
         int y = player.getY();
         boardBackground[x][y] = player.getLook();
-        boardBackground[3][3] = "GRA";
+        boardBackground[3][3] = "RRR";
         
 
         for (String[] line : boardBackground) {
@@ -86,14 +92,17 @@ public class Game extends KeyAdapter{
 
     public boolean isMovingPossible(int x, int y) {
         
-        if (map.getBoard()[x][y] == " . " || map.getBoard()[x][y] == "GRA") {
+        if (map.getBoard()[x][y] == " . ") {
             return true;
         }else{
             return false;
         }
     }
     public boolean isInteraction(int x, int y) {
-        if (map.getBoard()[x][y] == "GRA") {
+        if (map.getBoard()[x][y] ==  {
+            map.getBoard()[x][y] = " . ";
+            map.getBoard()[
+
             
             return true;
         }else{

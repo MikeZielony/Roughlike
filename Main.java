@@ -10,6 +10,7 @@ public class Main {
         
         Map map = new Map("Level 1", 20, 20);
         Game game = new Game(map, player);
+        map.addingRocks();
         
         // game.setPlayer(player);
         // game.setMap(map);
