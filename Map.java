@@ -21,18 +21,33 @@ public class Map {
     public String[][] getBoard() {
         return board;
     }
+
+    public void generateObstracles() {
+        int minWeight = 1;
+        int maxWeight = 150;
+        int minX = 1;
+        int minY = 1;
+        int maxX = sizeX - 1;
+        int maxY = sizeY - 1;
+        int numberOfElements = 20;
+
+        int elementWeight = (int)(Math.random() * ((maxWeight - minWeight) + 1)) + minWeight;
+        
+        boolean randomBoolean = Math.random() > 0.5;
+
+        for (int i = 0; i < numberOfElements; i++) {
+            int elementX = (int)(Math.random() * ((maxX - minX) + 1)) + minX;
+            int elementY = (int)(Math.random() * ((maxY - minY) + 1)) + minY;
+
+            elements.add(new Rock("RRR", elementWeight, elementX, elementY, randomBoolean, randomBoolean));
+        }   
+    }
     
     public String[][] generateMap() {
-        
-        
-        elements.add(new Rock("RRR", 3, 10, 12, false, true));
-        elements.add(new Rock("RRR", 5, 15, 15, false, false));
-        elements.add(new Rock("RRR", 30, 7, 11, false, true));
-        elements.add(new Rock("RRR", 100, 5, 12, false, false));
-        
         String sand = " . ";
         String frameHorizontal = "---";
         String frameVertical = " | ";
+        
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
                 if (x == 0 || x == sizeX - 1) {

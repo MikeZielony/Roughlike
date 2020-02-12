@@ -9,6 +9,7 @@ public class Main {
         Player player2 = new Player("Grazynka", "GRA", 100, 120, 3, 3, true);
         
         Map map = new Map("Level 1", 20, 20);
+        map.generateObstracles();
         Game game = new Game(map, player);
         
         // game.setPlayer(player);
