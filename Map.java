@@ -7,7 +7,7 @@ public class Map {
     private int sizeX;
     private int sizeY;
     private String[][] board;
-    private List<Element> elements;
+    public List<Element> elements;
 
     public Map(String levelName, int sizeX, int sizeY) {
         this.levelName = levelName;
@@ -17,7 +17,10 @@ public class Map {
         this.elements = new ArrayList<Element>();
         generateMap();
     }
-
+    public List<Element> getElements() {
+        this.elements = elements;
+        return elements;
+    }
     public String[][] getBoard() {
         return board;
     }
