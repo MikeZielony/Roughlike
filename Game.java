@@ -6,6 +6,7 @@ public class Game extends KeyAdapter{
 
     private Map map;
     private Player player;
+    public boolean isInteraction;
 
     public Game(Map map, Player player) {
         this.map = map;
@@ -35,7 +36,8 @@ public class Game extends KeyAdapter{
         switch(ch) {
             case 'w':
             
-                if (isMovingPossible(player.getX() - 1, player.getY())) {           
+                if (isMovingPossible(player.getX() - 1, player.getY())) {  
+                            
                 player.setX(-1);}
                 if (isInteraction(player.getX(), player.getY())) {
                     System.out.println("\007");
@@ -92,10 +94,15 @@ public class Game extends KeyAdapter{
     }
     public boolean isInteraction(int x, int y) {
         if (map.getBoard()[x][y] == "GRA") {
+            
             return true;
         }else{
             return false;
         }
     }
+    public void getIsInteraction () {
+        
+    }
+
 }
 

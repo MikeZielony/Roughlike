@@ -21,9 +21,11 @@ public class Map {
     public String[][] getBoard() {
         return board;
     }
-
+    
+    Gam
     public String[][] generateMap() {
-        // constants
+        
+        
         elements.add(new Rock("RRR", 3, 10, 12, false, true));
         elements.add(new Rock("RRR", 5, 15, 15, false, false));
         elements.add(new Rock("RRR", 30, 7, 11, false, true));
