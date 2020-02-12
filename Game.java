@@ -93,6 +93,11 @@ public class Game extends KeyAdapter{
         }
     }
     public boolean isInteraction(int x, int y) {
+
+        // foreach element in map.getElements
+            // if element.getX == x and element.getY == y
+                // return element.canPassThroughIt()
+        // return true
         if (map.getBoard()[x][y] == "GRA") {
             
             return true;

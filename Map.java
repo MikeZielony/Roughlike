@@ -22,7 +22,6 @@ public class Map {
         return board;
     }
     
-    Gam
     public String[][] generateMap() {
         
         
