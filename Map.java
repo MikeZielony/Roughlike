@@ -69,9 +69,9 @@ public class Map {
 
                 // add StaticElements here -- create class to reflect that
                 for (Element element : elements) {
-                    int xR = element.getX();
-                    int yR = element.getY();
-                    this.board[xR][yR] = element.getLook();
+                    int xE = element.getX();
+                    int yE = element.getY();
+                    this.board[xE][yE] = element.getLook();
                 }
             }
         }

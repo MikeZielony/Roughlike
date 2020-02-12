@@ -4,13 +4,14 @@ import javax.swing.JTextField;
 public class Main {
 
     public static void main(String[] args) {
-        new GameTimer(30);
+        // new GameTimer(30);
+        // new TimerCountdown().countdown(30);
         Player player = new Player("Janusz","JAN", 100, 120, 5, 5, false);
-        Enemy enemy = new Enemy("Grazynka", "GRA", 100, 120, 15, 3, true);
+        Enemy enemy = new Enemy("Grazynka", "GRA", 100, 120, 15, 3, false);
         
         Map map = new Map("Level 1", 20, 20);
-        map.generateObstracles("RRR", "Rock");
-        map.generateObstracles("XXX", "Tree");
+        map.generateObstracles("AAA", "Rock");
+        map.generateObstracles("YYY", "Tree");
         Game game = new Game(map, player, enemy);
         
         // game.setPlayer(player);
@@ -21,7 +22,7 @@ public class Main {
         textField.addKeyListener(game);
         JFrame jframe = new JFrame();
         jframe.add(textField);
-        jframe.setSize(100, 100);
+        jframe.setSize(50, 50);
         jframe.setVisible(true);
     }
 }
