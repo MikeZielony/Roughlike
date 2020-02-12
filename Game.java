@@ -6,15 +6,21 @@ public class Game extends KeyAdapter {
 
     private Map map;
     private Player player;
+    private Enemy enemy;
     public boolean isInteraction;
 
-    public Game(Map map, Player player) {
+    public Game(Map map, Player player, Enemy enemy) {
         this.map = map;
         this.player = player;
+        this.enemy = enemy;
     }
 
     public void start() {
         this.map.generateMap();
+    }
+
+    public void setEnemy(Enemy enemy) {
+        this.enemy = enemy;
     }
 
     public void setPlayer(Player player) {
@@ -83,6 +89,9 @@ public class Game extends KeyAdapter {
         int y = player.getY();
         boardBackground[x][y] = player.getLook();
         // boardBackground[3][3] = "GRA";
+        int xE = enemy.getX();
+        int yE = enemy.getY();
+        boardBackground[xE][yE] = enemy.getLook();
 
         for (String[] line : boardBackground) {
             for (String character : line) {
@@ -93,7 +102,7 @@ public class Game extends KeyAdapter {
     }
 
     public boolean isMovingPossible(int x, int y) {
-        return map.getBoard()[x][y] == " . " || map.getBoard()[x][y] == "RRR";
+        return map.getBoard()[x][y] == Color.GREEN_BOLD_BRIGHT + " . " + Color.RESET || map.getBoard()[x][y] == "RRR";
     }
 
     public boolean isInteraction(int px, int py, int x, int y) {

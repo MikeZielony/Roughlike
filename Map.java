@@ -47,7 +47,7 @@ public class Map {
     }
     
     public String[][] generateMap() {
-        String sand = " . ";
+        String sand = Color.GREEN_BOLD_BRIGHT + " . " + Color.RESET;
         String frameHorizontal = "---";
         String frameVertical = " | ";
         

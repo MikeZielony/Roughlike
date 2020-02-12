@@ -8,7 +8,7 @@ public class Player extends LivingElement{
 
     @Override
     protected String getColor() {
-        return Color.GREEN_BRIGHT;
+        return Color.PURPLE_BOLD_BRIGHT;
     }
 
 }
