@@ -43,11 +43,27 @@ public class Game extends KeyAdapter{
                  }
                 
                 break;
-            case 's':
+                case 'S':
+                isInteraction(player.getX() - 1, player.getY(), 1, 0);
+
+                if (isMovingPossible(player.getX() - 1, player.getY())) {           
+                      player.setX(1);
+                 }
+                
+                break;
+                case 's':
                 isInteraction(player.getX() + 1, player.getY(), 1, 0);
 
                 if (isMovingPossible(player.getX() +1, player.getY())) {           
                       player.setX(1);
+                 }
+
+                break;
+            case 'W':
+                isInteraction(player.getX() + 1, player.getY(), -1, 0);
+
+                if (isMovingPossible(player.getX() +1, player.getY())) {           
+                      player.setX(-1);
                  }
 
                 break;
@@ -59,11 +75,27 @@ public class Game extends KeyAdapter{
                     
                 }
                 break;
+                case 'D':
+                isInteraction(player.getX(), player.getY() - 1, 0, 1);
+
+                if (isMovingPossible(player.getX(), player.getY()-1)) {           
+                    player.setY(1);
+                    
+                }
+                break;
             case 'd':
                 isInteraction(player.getX(), player.getY() + 1, 0, 1);
 
                 if (isMovingPossible(player.getX(), player.getY()+1)) {           
                     player.setY(1);
+                    
+                }
+                break;   
+                case 'A':
+                isInteraction(player.getX(), player.getY() + 1, 0,-1);
+
+                if (isMovingPossible(player.getX(), player.getY()+1)) {           
+                    player.setY(-1);
                     
                 }
                 break;   
