@@ -4,7 +4,7 @@ import javax.swing.JTextField;
 public class Main {
 
     public static void main(String[] args) {
-        new GameTimer(10);
+        //new GameTimer(10);
         // new TimerCountdown().countdown(30);
         Player player = new Player("Janusz","JAN", 100, 120, 5, 5, false);
         Enemy enemy = new Enemy("Grazynka", "GRA", 100, 120, 15, 3, false);

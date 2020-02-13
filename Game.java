@@ -33,6 +33,9 @@ public class Game extends KeyAdapter {
 
     @Override
     public void keyPressed(KeyEvent event) {
+        int number = (int) (Math.random() * ((100) + 1));
+        if (number > 50){
+        logicGrazyna();}
 
         char ch = event.getKeyChar();
 
@@ -121,4 +124,40 @@ public class Game extends KeyAdapter {
         return false;
 
     }
+public void moveGrazynaUp () {
+    if (!isMovingPossible(enemy.getX() - 1, enemy.getY())) {
+        enemy.setY(1);
+    }
+    enemy.setY(-1);
+}
+    public void moveGrazynaDown () {
+        if (!isMovingPossible(enemy.getX() - 1, enemy.getY())) {
+            enemy.setX(1);
+            return;
+        }
+        enemy.setY(1);
+    }
+    public void moveGrazynaLeft () {
+        if (!isMovingPossible(enemy.getX() - 1, enemy.getY())) {
+            enemy.setY(1);
+        }
+        enemy.setX(-1);
+        }
+    public void moveGrazynaRight () {
+        if (!isMovingPossible(enemy.getX() - 1, enemy.getY())) {
+            enemy.setX(-1);
+        }
+        enemy.setX(1);
+        }
+   public void logicGrazyna () {
+            if (player.getY() < enemy.getY()) {
+                moveGrazynaUp();}
+            if (player.getY() > enemy.getY()) {
+                moveGrazynaDown();}
+            if ( player.getX() < enemy.getX()) {
+                moveGrazynaLeft();}
+            if (player.getX() > enemy.getX())
+                {moveGrazynaRight();}
+    
+            }
 }

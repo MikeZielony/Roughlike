@@ -62,4 +62,6 @@ public abstract class Element {
     public void setIsMoveable() {
         this.isMoveable = true;
     }
-}
+    
+    }
+    
