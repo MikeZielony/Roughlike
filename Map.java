@@ -73,15 +73,13 @@ public class Map {
                 for (Element element : elements) {
                     int xE = element.getX();
                     int yE = element.getY();
-                    System.out.println(xE + " " + yE);
-
+                    
                     if (element.getX() < 19 && element.getY() < 19 && element.getX() > 0  && element.getY() > 0) {
                         this.board[xE][yE] = element.getLook();
                     }
                     else {
                         inventory.add(element);
-                        System.out.println(inventory.get(0).getLook());
-                        // elements.remove(element);
+                        
 
                     }
                 
