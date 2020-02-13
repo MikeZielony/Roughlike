@@ -73,6 +73,7 @@ public class Game extends KeyAdapter {
         }
 
         clearScreen();
+        
         display();
     }
 
