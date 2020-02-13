@@ -38,66 +38,66 @@ public class Game extends KeyAdapter{
             case 'w':
                 isInteraction(player.getX() - 1, player.getY(), -1, 0);
 
-                // if (isMovingPossible(player.getX() - 1, player.getY())) {           
-                //       player.setX(-1);
-                //  }
+                if (isMovingPossible(player.getX() - 1, player.getY())) {           
+                      player.setX(-1);
+                 }
                 
                 break;
                 case 'S':
                 isInteraction(player.getX() - 1, player.getY(), 1, 0);
 
-                // if (isMovingPossible(player.getX() - 1, player.getY())) {           
-                //       player.setX(1);
-                //  }
+                if (isMovingPossible(player.getX() - 1, player.getY())) {           
+                      player.setX(1);
+                 }
                 
                 break;
                 case 's':
                 isInteraction(player.getX() + 1, player.getY(), 1, 0);
 
-                // if (isMovingPossible(player.getX() +1, player.getY())) {           
-                //       player.setX(1);
-                //  }
+                if (isMovingPossible(player.getX() +1, player.getY())) {           
+                      player.setX(1);
+                 }
 
                 break;
             case 'W':
                 isInteraction(player.getX() + 1, player.getY(), -1, 0);
 
-                // if (isMovingPossible(player.getX() +1, player.getY())) {           
-                //       player.setX(-1);
-                //  }
+                if (isMovingPossible(player.getX() +1, player.getY())) {           
+                      player.setX(-1);
+                 }
 
                 break;
             case 'a':
                 isInteraction(player.getX(), player.getY() - 1, 0, -1);
 
-                // if (isMovingPossible(player.getX(), player.getY()-1)) {           
-                //     player.setY(-1);
+                if (isMovingPossible(player.getX(), player.getY()-1)) {           
+                    player.setY(-1);
                     
-                // }
+                }
                 break;
                 case 'D':
                 isInteraction(player.getX(), player.getY() - 1, 0, 1);
 
-                // if (isMovingPossible(player.getX(), player.getY()-1)) {           
-                //     player.setY(1);
+                if (isMovingPossible(player.getX(), player.getY()-1)) {           
+                    player.setY(1);
                     
-                // }
+                }
                 break;
             case 'd':
                 isInteraction(player.getX(), player.getY() + 1, 0, 1);
 
-                // if (isMovingPossible(player.getX(), player.getY()+1)) {           
-                //     player.setY(1);
+                if (isMovingPossible(player.getX(), player.getY()+1)) {           
+                    player.setY(1);
                     
-                // }
+                }
                 break;   
                 case 'A':
                 isInteraction(player.getX(), player.getY() + 1, 0,-1);
 
-                // if (isMovingPossible(player.getX(), player.getY()+1)) {           
-                //     player.setY(-1);
+                if (isMovingPossible(player.getX(), player.getY()+1)) {           
+                    player.setY(-1);
                     
-                // }
+                }
                 break;   
         }
 
@@ -161,32 +161,31 @@ public class Game extends KeyAdapter{
     //}
 //}
 
-   //public boolean isMovingPossible(int x, int y) {
-     //  return map.getBoard()[x][y] == " . " || map.getBoard()[x][y] == "RRR";
-//}
-//isInteraction(player.getX() - 1, player.getY(), -1, 0);
+   public boolean isMovingPossible(int x, int y) {
+     return map.getBoard()[x][y] == " . " || map.getBoard()[x][y] == "RRR";
+}
+// public boolean  isInteraction(player.getX() - 1, player.getY(), -1, 0);
 
                 // if (isMovingPossible(player.getX() - 1, player.getY())) {           
                 //       player.setX(-1);
                 //  }
 
     public boolean isInteraction(int px, int py, int x, int y) {
-        if(map.getBoard()[px+x][py+y] == " . " || map.getBoard()[px][py] == "RRR"){
-            player.setX(x);
-            player.setY(y);
-       
+        // if(map.getBoard()[px+x][py+y] == " . " || map.getBoard()[px+x][py+y] == "RRR"){
+        //     player.setX(x);
+        //     player.setY(y);
         for (Element element : map.getElements() ) {
-            if (element.getX() == px 
-            && element.getY() == py) {
-                 element.setIsMoveable();
-                 element.setX(x);
+            if (element.getX() == px && element.getY() == py) {
+                element.setIsMoveable();
                  element.setY(y);
+                 element.setX(x);
+                
                  
-                 return true;
+                 return true;}
         }
-    }
-        
-    }
+    
+
+    
     return false;
 
 }
