@@ -20,7 +20,8 @@ public class GameTimer{
         public void run() {
             System.out.println("Time is up !");
             toolkit.beep();
-            System.exit(0);
+            System.out.println("YOU Lose !");
+            timer.cancel();
         }
     }
 }

@@ -1,13 +1,17 @@
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
 
 public class Game extends KeyAdapter {
 
+    private Timer timer;
     private Map map;
     private Player player;
     private Enemy enemy;
     public boolean isInteraction;
+    private boolean isGameRunnig = true; // TODO check if game running
 
     public Game(Map map, Player player, Enemy enemy) {
         this.map = map;
@@ -34,42 +38,50 @@ public class Game extends KeyAdapter {
     @Override
     public void keyPressed(KeyEvent event) {
 
-        char ch = event.getKeyChar();
+        if (isGameRunnig) {
+            char ch = event.getKeyChar();
 
+            switch (ch) {
+            case 'w':
+                isInteraction(player.getX() - 1, player.getY(), -1, 0);
 
-        switch (ch) {
-        case 'w':
-            isInteraction(player.getX() - 1, player.getY(), -1, 0);
+                if (isMovingPossible(player.getX() - 1, player.getY())) {
+                    player.setX(-1);
+                }
 
-            if (isMovingPossible(player.getX() - 1, player.getY())) {
-                player.setX(-1);
+                break;
+            case 's':
+                isInteraction(player.getX() + 1, player.getY(), 1, 0);
+
+                if (isMovingPossible(player.getX() + 1, player.getY())) {
+                    player.setX(1);
+                }
+
+                break;
+            case 'a':
+                isInteraction(player.getX(), player.getY() - 1, 0, -1);
+
+                if (isMovingPossible(player.getX(), player.getY() - 1)) {
+                    player.setY(-1);
+
+                }
+                break;
+            case 'd':
+                isInteraction(player.getX(), player.getY() + 1, 0, 1);
+
+                if (isMovingPossible(player.getX(), player.getY() + 1)) {
+                    player.setY(1);
+                }
+                break;
+            case 'o':
+                System.out.println("QUIT");
+                isGameRunnig = false;
+                break;
+            default:
+                break;
             }
-
-            break;
-        case 's':
-            isInteraction(player.getX() + 1, player.getY(), 1, 0);
-
-            if (isMovingPossible(player.getX() + 1, player.getY())) {
-                player.setX(1);
-            }
-
-            break;
-        case 'a':
-            isInteraction(player.getX(), player.getY() - 1, 0, -1);
-
-            if (isMovingPossible(player.getX(), player.getY() - 1)) {
-                player.setY(-1);
-
-            }
-            break;
-        case 'd':
-            isInteraction(player.getX(), player.getY() + 1, 0, 1);
-
-            if (isMovingPossible(player.getX(), player.getY() + 1)) {
-                player.setY(1);
-
-            }
-            break;
+            clearScreen();
+            display();
         }
 
         clearScreen();
