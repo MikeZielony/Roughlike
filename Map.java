@@ -48,7 +48,7 @@ public class Map {
                 elements.add(new Rock(name, elementWeight, elementX, elementY, false, false));
                 break;
             case "Tree":
-                elements.add(new Tree(name, elementWeight, elementX, elementY, randomBoolean, false));
+                elements.add(new Tree(name, elementWeight, elementX, elementY, randomBoolean, true));
 
             }
         }

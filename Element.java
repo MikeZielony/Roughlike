@@ -34,6 +34,9 @@ public abstract class Element {
     public int getY() {
         return this.y;
     }
+    public boolean isMoveable() {
+        return this.isMoveable;
+    }
 
     public boolean getCanPassThrough() {
         return this.canPassThrough;

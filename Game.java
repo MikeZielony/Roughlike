@@ -106,13 +106,12 @@ public class Game extends KeyAdapter {
     }
 
     public boolean isMovingPossible(int x, int y) {
-        return map.getBoard()[x][y] == Color.GREEN_BOLD_BRIGHT + " . " + Color.RESET || map.getBoard()[x][y] == "RRR";
-    }
+        return map.getBoard()[x][y] == Color.GREEN_BOLD_BRIGHT + " . " + Color.RESET;}
 
     public boolean isInteraction(int px, int py, int x, int y) {
 
         for (Element element : map.getElements()) {
-            if (element.getX() == px && element.getY() == py) {
+            if ((element.getX() == px && element.getY() == py) && (element.isMoveable())) {
                 element.setIsMoveable();
                 element.setX(x);
                 element.setY(y);
