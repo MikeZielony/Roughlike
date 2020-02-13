@@ -43,10 +43,10 @@ public class Map {
             int elementY = (int) (Math.random() * ((maxY - minY) + 1)) + minY;
             switch (objectName) {
             case "Rock":
-                elements.add(new Rock(name, elementWeight, elementX, elementY, randomBoolean, randomBoolean));
+                elements.add(new Rock(name, elementWeight, elementX, elementY, false, false));
                 break;
             case "Tree":
-                elements.add(new Tree(name, elementWeight, elementX, elementY, randomBoolean, randomBoolean));
+                elements.add(new Tree(name, elementWeight, elementX, elementY, randomBoolean, false));
 
             }
         }
