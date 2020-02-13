@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
@@ -5,7 +7,7 @@ public class Controller{
 
     private boolean isRunning = true;
         
-    public Controller(){
+    public Controller() throws FileNotFoundException{
         
         UserGlobalInput uInput = new UserGlobalInput();
 
@@ -46,12 +48,16 @@ public class Controller{
 
                     break;
                 case 2:
+                Service service = new Service();
+                service.readCsvFile();
+                // Score score = new Score(, points)
                     // Show all results
                     System.out.println("High Scores: ");
-                    Printing table = new Printing();
-                    table.printHeader();
-                    table.printTable();
+                    // Printing table = new Printing();
+                    // table.printHeader();
+                    // table.printTable();
                     // result.getResultTable();
+
                     break;
 
                 case 0:
