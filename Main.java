@@ -1,8 +1,9 @@
+
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 public class Main {
-
+    
     public static void main(String[] args) {
         new GameTimer(10);
         // new TimerCountdown().countdown(30);
@@ -24,5 +25,6 @@ public class Main {
         jframe.add(textField);
         jframe.setSize(50, 50);
         jframe.setVisible(true);
+
     }
 }
