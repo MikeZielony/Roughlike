@@ -8,35 +8,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Service {
-    public List scores;
-
-    // List<String> names;
-
-    // public Reader(){
-
-    // }
-
-    // public List<String> reading(String fileName){
-    // names = new ArrayList<>();
-    // String line = "";
-    // try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-    // while ((line = br.readLine()) != null) {
-    // names.add(line);
-    // }
-    // } catch (FileNotFoundException e) {
-    // e.printStackTrace();
-    // } catch (IOException e) {
-    // e.printStackTrace();
-    // }
-    // return names;
-    // }
-
-    // public void endGame(int finalScore, String playerName, int level) throws IOException {
-    //     List<String> scores = retrieveScores();
-    //     addNewScore(playerName, level, finalScore, scores);
-    //     writeScores(scores);
-    //     showLeaderBoard(scores);
-    // }
+    
+    public void endGame(int finalScore, String playerName, int level) throws IOException {
+        List<String> scores = retrieveScores();
+        addNewScore(playerName, level, finalScore, scores);
+        writeScores(scores);
+        showLeaderBoard(scores);
+    }
 
     public List<String> retrieveScores(List<String> scores) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("score.txt"));
