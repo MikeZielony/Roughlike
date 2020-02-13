@@ -8,6 +8,7 @@ public class Map {
     private int sizeY;
     private String[][] board;
     public List<Element> elements;
+    private List<Element> inventory;
 
     public Map(String levelName, int sizeX, int sizeY) {
         this.levelName = levelName;
@@ -15,6 +16,7 @@ public class Map {
         this.sizeY = sizeY;
         this.board = new String[sizeX][sizeY];
         this.elements = new ArrayList<Element>();
+        this.inventory = new ArrayList<Element>();
         generateMap();
     }
 
@@ -30,10 +32,10 @@ public class Map {
     public void generateObstracles(String name, String objectName) {
         int minWeight = 1;
         int maxWeight = 150;
-        int minX = 1;
-        int minY = 1;
-        int maxX = sizeX - 1;
-        int maxY = sizeY - 1;
+        int minX = 2;
+        int minY = 2;
+        int maxX = sizeX - 2;
+        int maxY = sizeY - 2;
         int numberOfElements = 5;
         int elementWeight = (int) (Math.random() * ((maxWeight - minWeight) + 1)) + minWeight;
         boolean randomBoolean = Math.random() > 0.5;
@@ -71,16 +73,25 @@ public class Map {
                 for (Element element : elements) {
                     int xE = element.getX();
                     int yE = element.getY();
-                    this.board[xE][yE] = element.getLook();
+                    System.out.println(xE + " " + yE);
+
+                    if (element.getX() < 19 && element.getY() < 19 && element.getX() > 0  && element.getY() > 0) {
+                        this.board[xE][yE] = element.getLook();
+                    }
+                    else {
+                        inventory.add(element);
+                        System.out.println(inventory.get(0).getLook());
+                        // elements.remove(element);
+
+                    }
+                
                 }
             }
-        }
 
+        }
+        System.out.println(inventory.size());
         return this.board;
     }
 
-    public void addElement(Element element) {
-        this.elements.add(element);
-    }
 
 }
