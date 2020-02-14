@@ -9,6 +9,7 @@ public class Map {
     private String[][] board;
     public List<Element> elements;
     private List<Element> inventory;
+    private int move = 0;
 
     public Map(String levelName, int sizeX, int sizeY) {
         this.levelName = levelName;
@@ -86,10 +87,12 @@ public class Map {
                     }
                 
                 }
-            }
 
+            }
+        
         }
-        System.out.println(inventory.size());
+        move = move + 1;
+        System.out.println(move);
         return this.board;
     }
 
