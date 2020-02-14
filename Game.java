@@ -38,26 +38,38 @@ public class Game extends KeyAdapter {
         logicGrazyna();}
 
         char ch = event.getKeyChar();
+        clearScreen();
 
 
         switch (ch) {
+            
         case 'w':
+            if (checkStatus() == false){
+                System.out.println("YOU WIN!");
+                return;
+            }
             isInteraction(player.getX() - 1, player.getY(), -1, 0);
 
             if (isMovingPossible(player.getX() - 1, player.getY())) {
                 player.setX(-1);
             }
-
             break;
         case 's':
+            if (checkStatus() == false){
+                System.out.println("YOU WIN!");
+                return;
+            }
             isInteraction(player.getX() + 1, player.getY(), 1, 0);
 
             if (isMovingPossible(player.getX() + 1, player.getY())) {
                 player.setX(1);
             }
-
             break;
         case 'a':
+            if (checkStatus() == false){
+                System.out.println("YOU WIN!");
+                return;
+            }
             isInteraction(player.getX(), player.getY() - 1, 0, -1);
 
             if (isMovingPossible(player.getX(), player.getY() - 1)) {
@@ -66,6 +78,10 @@ public class Game extends KeyAdapter {
             }
             break;
         case 'd':
+            if (checkStatus() == false){
+                System.out.println("YOU WIN!");
+                return;
+            }
             isInteraction(player.getX(), player.getY() + 1, 0, 1);
 
             if (isMovingPossible(player.getX(), player.getY() + 1)) {
@@ -75,8 +91,6 @@ public class Game extends KeyAdapter {
             break;
         }
 
-        clearScreen();
-        
         display();
     }
 
@@ -86,6 +100,7 @@ public class Game extends KeyAdapter {
     }
 
     public void display() {
+
         String[][] boardBackground;
         boardBackground = this.map.generateMap();
 
@@ -103,6 +118,18 @@ public class Game extends KeyAdapter {
             }
             System.out.println();
         }
+    }
+
+    public boolean checkStatus() {
+
+        int count = 0;
+        for (Element element : map.getElements()) {
+            if(element instanceof Tree) {
+                count++;          
+                System.out.print("Beers " + count + ", ");      
+            }
+        }
+        return count == 0 ? false : true;
     }
 
     public boolean isMovingPossible(int x, int y) {

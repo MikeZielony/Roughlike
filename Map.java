@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.lang.model.util.Elements;
+
 public class Map {
 
     private String levelName;
@@ -9,6 +11,7 @@ public class Map {
     private String[][] board;
     public List<Element> elements;
     private List<Element> inventory;
+    private int move = - 1;
 
     public Map(String levelName, int sizeX, int sizeY) {
         this.levelName = levelName;
@@ -70,7 +73,9 @@ public class Map {
                 }
 
                 // add StaticElements here -- create class to reflect that
-                for (Element element : elements) {
+                // for (Element element : elements) {
+                for(int i =0; i < elements.size(); i++) {
+                    Element element = elements.get(i);
                     int xE = element.getX();
                     int yE = element.getY();
                     
@@ -79,15 +84,15 @@ public class Map {
                     }
                     else {
                         inventory.add(element);
-                        
-
+                        elements.remove(i);
                     }
                 
                 }
             }
 
         }
-        System.out.println(inventory.size());
+        move = move + 1;
+        System.out.println("Moves count " + move);
         return this.board;
     }
 

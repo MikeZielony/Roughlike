@@ -1,63 +1,68 @@
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Service {
-    
-    public void endGame(int finalScore, String playerName, int level) throws IOException {
-        List<String> scores = retrieveScores();
-        addNewScore(playerName, level, finalScore, scores);
-        writeScores(scores);
-        showLeaderBoard(scores);
+    Score score;
+    List<Score> scores;
+
+    public Service() {
+        scores = new ArrayList<Score>();
+
     }
 
-    public List<String> retrieveScores(List<String> scores) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("score.txt"));
-        String scoreLine = reader.readLine(); // read line that contains scores
-        // List<String> scores = new ArrayList<>();
-        if (scoreLine != null) { // in case of first game
-            String[] tempScore = scoreLine.split(", ");
-            scores = new ArrayList<>(Arrays.asList(tempScore));
+    public void readCsvFile() throws FileNotFoundException {
+
+        File scoreFile = new File("Roughlike/score.csv");
+        Scanner scanner = new Scanner(scoreFile);
+
+        while (scanner.hasNextLine()) {
+            String[] splitted = scanner.nextLine().split(";");
+            String name = splitted[0].strip();
+            int points = Integer.parseInt(splitted[1].strip());
+            Score score = new Score(name, points);
+            scores.add(score);
         }
-        reader.close();
-        return scores;
+        scanner.close();
+
     }
 
-    private void addNewScore(String playerName, int level, int finalScore, List<String> scores) {
-        
-        boolean foundSpotForNewScore = false;
-        int i = 0;
-        while (!foundSpotForNewScore && i < scores.size()) {
-            if (finalScore <= Integer.parseInt(scores.get(i))) {
-                foundSpotForNewScore = true;
-            }
-            i++;
+    public void addNewScore(int points) {
+        UserGlobalInput input = new UserGlobalInput();
+        System.out.println("Enter your name: ");
+        String playerName = input.getStringInput();
+        Score score = new Score(playerName, points);
+        scores.add(score);
+        try {
+            writeScores();
+        } catch (IOException e) {
+    }
+    }
+
+    public void writeScores() throws IOException {
+        FileWriter writer = new FileWriter("Roughlike/score.csv");
+        String outputScores = "";
+        for (Score score : scores) {
+            outputScores += score.name + ";" + score.points + "\n";
         }
-        scores.add(i, String.valueOf(finalScore));
-    }
-
-    private void writeScores(List<String> scores) throws IOException {
-        FileWriter writer = new FileWriter("score.txt");
-        String outputScores = scores.toString();
-        outputScores = outputScores.replace("[", "");
-        outputScores = outputScores.replace("]", "");
         writer.write(outputScores);
         writer.close();
     }
 
-    private void showLeaderBoard(List<String> scores) {
-        System.out.println("*** TOP 5 LEADERBOARD ***");
+    public void showLeaderBoard() {
+        System.out.println("+++ H I G H S C O R E S +++");
         int i = 0;
-        while (i < 5 && i < scores.size()) {
-            System.out.println(scores.get(i));
+        while (i < 10 && i < scores.size()) {
+            System.out.println(scores.get(i).name + " " + scores.get(i).points);
             i++;
         }
-        System.out.println("*** TOP 5 LEADERBOARD ***");
     }
-
 }

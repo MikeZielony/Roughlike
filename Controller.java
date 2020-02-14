@@ -34,6 +34,8 @@ public class Controller{
                     Map map = new Map("Level 1", 20, 20);
                     map.generateObstracles(" \u26F0 ", "Rock");
                     map.generateObstracles(" \uD83C\uDF7A ", "Tree");
+
+
                     Game game = new Game(map, player, enemy);
                     
                     JTextField textField = new JTextField();
