@@ -49,7 +49,7 @@ public class Controller{
                     break;
                 case 2:
                     System.out.println("High Scores: ");
-                    Printing table = new Printing();
+                    Printing table = new Printing(null, null, menuOption);
                     table.printHeader();
                     table.printTable();
                     break;
