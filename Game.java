@@ -138,7 +138,7 @@ public class Game extends KeyAdapter {
     public boolean isInteraction(int px, int py, int x, int y) {
 
         for (Element element : map.getElements()) {
-            if ((element.getX() == px && element.getY() == py) && (element.isMoveable())) {
+            if (element.getX() == px && element.getY() == py && element.isMoveable()) {
                 element.setIsMoveable();
                 element.setX(x);
                 element.setY(y);

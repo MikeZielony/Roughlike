@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.lang.model.util.Elements;
-
 public class Map {
 
     private String levelName;
@@ -24,7 +22,6 @@ public class Map {
     }
 
     public List<Element> getElements() {
-        this.elements = elements;
         return elements;
     }
 
@@ -47,12 +44,11 @@ public class Map {
             int elementX = (int) (Math.random() * ((maxX - minX) + 1)) + minX;
             int elementY = (int) (Math.random() * ((maxY - minY) + 1)) + minY;
             switch (objectName) {
-            case "Rock":
-                elements.add(new Rock(name, elementWeight, elementX, elementY, false, false));
-                break;
-            case "Tree":
-                elements.add(new Tree(name, elementWeight, elementX, elementY, randomBoolean, true));
-
+                case "Rock":
+                    elements.add(new Rock(name, elementWeight, elementX, elementY, false, false));
+                    break;
+                case "Tree":
+                    elements.add(new Tree(name, elementWeight, elementX, elementY, randomBoolean, true));
             }
         }
     }
@@ -72,26 +68,22 @@ public class Map {
                     this.board[x][y] = sand;
                 }
 
-                // add StaticElements here -- create class to reflect that
-                // for (Element element : elements) {
                 for(int i =0; i < elements.size(); i++) {
                     Element element = elements.get(i);
                     int xE = element.getX();
                     int yE = element.getY();
                     
-                    if (element.getX() < 19 && element.getY() < 19 && element.getX() > 0  && element.getY() > 0) {
-                        this.board[xE][yE] = element.getLook();
-                    }
-                    else {
+                    if (element.getX() > 19 && element.getX() > 19) {
                         inventory.add(element);
                         elements.remove(i);
+                        continue;
                     }
-                
+                    this.board[xE][yE] = element.getLook();
                 }
             }
 
         }
-        move = move + 1;
+        move++;
         System.out.println("Moves count " + move);
         return this.board;
     }

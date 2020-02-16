@@ -1,12 +1,9 @@
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,9 +11,9 @@ public class Service {
     Score score;
     List<Score> scores;
 
+
     public Service() {
         scores = new ArrayList<Score>();
-
     }
 
     public void readCsvFile() throws FileNotFoundException {
@@ -44,7 +41,8 @@ public class Service {
         try {
             writeScores();
         } catch (IOException e) {
-    }
+            System.out.println(e.getMessage());
+        }
     }
 
     public void writeScores() throws IOException {
@@ -59,10 +57,8 @@ public class Service {
 
     public void showLeaderBoard() {
         System.out.println("+++ H I G H S C O R E S +++");
-        int i = 0;
-        while (i < 10 && i < scores.size()) {
+        for(int i = 0; i < 10; i++){
             System.out.println(scores.get(i).name + " " + scores.get(i).points);
-            i++;
         }
     }
 }

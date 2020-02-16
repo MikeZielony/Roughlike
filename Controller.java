@@ -48,12 +48,10 @@ public class Controller{
 
                     break;
                 case 2:
-                    // Show all results
                     System.out.println("High Scores: ");
                     Printing table = new Printing();
                     table.printHeader();
                     table.printTable();
-                    // result.getResultTable();
                     break;
 
                 case 0:

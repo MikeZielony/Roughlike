@@ -6,10 +6,6 @@ public class Printing {
     public Time time;
     public int level;
 
-    public Printing() {
-
-    }
-
     public Printing(String name, Time time, int level){
         this.name = name;
         this.time = time;
